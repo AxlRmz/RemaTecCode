@@ -27,10 +27,6 @@ bool buttonState, previousState, buttonStateh, previousStateh;
 unsigned long tiempo, lastTiempo,tiempoh, lastTiempoh;
 float sec, inter, vel, c,interh;
 
-
-
-
-
 LiquidCrystal lcd(RS, EN, D4, D5, D6, D7);
 
 void setup()
@@ -44,7 +40,6 @@ void setup()
   digitalWrite(13, LOW); //lcd encendido/apagado
   pinMode(BOTON_PULSO, INPUT);//boton velocidad
   pinMode(BUTTONPin, INPUT);//boton heart
-
 
   //LEDS de resistencia
   pinMode(A4, OUTPUT); //LED -> SALIDA
@@ -121,15 +116,14 @@ void loop()
       vel = c * 3600 * (0.0015 / sec);
       lcd.print(vel);
       lastTiempo = tiempo;
+      
       //millas
       lcd.setCursor(12, 1);
       lcd.print(vel / 1.609);
     }
     previousState = buttonState;
 
-
     //fotoresis
-
     int ldr = analogRead(A0);
     //Serial.println(ldr);
     delay(100);
